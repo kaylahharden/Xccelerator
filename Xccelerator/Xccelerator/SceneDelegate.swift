@@ -1,8 +1,8 @@
 //
 //  SceneDelegate.swift
-//  Xccelerator
+//  Xccelerator Submission Form
 //
-//  Created by Sarah Mullings on 2/6/22.
+//  Created by Kaylah Harden on 2/7/22.
 //
 
 import UIKit
