@@ -45,22 +45,5 @@ class ViewController: UIViewController, UITextFieldDelegate {
         textView.text = "Car model: \(CarTypeTextfield.text!)\nCar Color \(CarColorTextfield.text!)"
     }
     
-//Once a person presses the return/enter key, we come to this function
-   // func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
-        //firstname : "firstname"
-        //lastname : "lastname"
-        //color: "color"
-        //type "type"
-        
-  //      FirstNameuserdefault.setValue(FirstNameTextfield.text, forKey: "firstName")
-  //      LastNameuserdefault.setValue(LastNameTextfield.text, forKey: "lastName")
-  //      CarTypeuserdefault.setValue(CarTypeTextfield.text, forKey: "carType")
-  //      CarColoruserdefault.setValue(CarColorTextfield.text, forKey: "carColor")
-        
-  //      return true
- //   }
- 
-    
 }
 
