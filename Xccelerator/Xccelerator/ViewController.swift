@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  Xccelerator Submission Form
 //
-//  Created by Kaylah Harden on 2/7/22.
+//  Created by Sarah Mullings and Kaylah Harden on 2/7/22.
 //
 
 import UIKit
@@ -38,6 +38,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         LastNameuserdefault.setValue(LastNameTextfield.text, forKey: "lastName")
         CarTypeuserdefault.setValue(CarTypeTextfield.text, forKey: "carType")
         CarColoruserdefault.setValue(CarColorTextfield.text, forKey: "carColor")
+        APIFunctions.functions.addPost(make: CarTypeTextfield.text!, color: CarColorTextfield.text!)
     }
     
     
