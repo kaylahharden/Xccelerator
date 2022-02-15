@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "picturetopeople.org-cb64d31d3ef7ef55272d3d05cf79ef0ce7226d844da4ba6ef4.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

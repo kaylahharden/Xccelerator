@@ -45,12 +45,20 @@ app.post("/create", function(request, response){  // sends a POST request that w
     })  
 })
 
+// route to get all carPosts (GET request)
+app.get("/fetch", function(request, response){
+    Data.find({}).then(function(dbPosts){    // finds everything in the database
+        response.send(dbPosts)   // responds by sendin all the posts
+    })   
+    // this is where we would refine the search in the brackets (ex. specific to location, color, make, ...)
+})
+
+
 // route to delete a carPost (POST request)
 // route to update a carPost (POST request)
-// route to get all carPosts (GET request)
 
 
-// http://10.84.115.183:8081/create
-var server = app.listen(8081, "10.84.115.183", function(){     // listens on specified port number on my ip address
+// http://10.84.114.54:8082/create
+var server = app.listen(8082, "10.84.114.54", function(){     // listens on specified port number on my ip address
     console.log("Server is running...")
 })  
