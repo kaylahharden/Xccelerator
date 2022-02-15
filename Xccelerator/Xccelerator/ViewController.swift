@@ -8,13 +8,14 @@
 import UIKit
 
 class ViewController: UIViewController, UITextFieldDelegate {
-
+    
     @IBOutlet weak var FirstNameTextfield: UITextField!
     @IBOutlet weak var LastNameTextfield: UITextField!
     @IBOutlet weak var CarTypeTextfield: UITextField!
     @IBOutlet weak var CarColorTextfield: UITextField!
     @IBOutlet weak var textView: UITextView!
     
+    @IBOutlet weak var postCarButton: UIButton!
     
     //Create an instance of user defaults
     let  FirstNameuserdefault = UserDefaults()
@@ -33,18 +34,23 @@ class ViewController: UIViewController, UITextFieldDelegate {
         CarColorTextfield.delegate = self
     }
 
-    @IBAction func FindCarButton(_ sender: Any) {
-        FirstNameuserdefault.setValue(FirstNameTextfield.text, forKey: "firstName")
-        LastNameuserdefault.setValue(LastNameTextfield.text, forKey: "lastName")
-        CarTypeuserdefault.setValue(CarTypeTextfield.text, forKey: "carType")
-        CarColoruserdefault.setValue(CarColorTextfield.text, forKey: "carColor")
-        APIFunctions.functions.addPost(make: CarTypeTextfield.text!, color: CarColorTextfield.text!)
-    }
+//    @IBAction func FindCarButton(_ sender: Any) {
+//        FirstNameuserdefault.setValue(FirstNameTextfield.text, forKey: "firstName")
+//        LastNameuserdefault.setValue(LastNameTextfield.text, forKey: "lastName")
+//        CarTypeuserdefault.setValue(CarTypeTextfield.text, forKey: "carType")
+//        CarColoruserdefault.setValue(CarColorTextfield.text, forKey: "carColor")
+//        APIFunctions.functions.addPost(make: CarTypeTextfield.text!, color: CarColorTextfield.text!)
+//    }
     
     
     @IBAction func testbutton(_ sender: Any) {
         textView.text = "Car model: \(CarTypeTextfield.text!)\nCar Color \(CarColorTextfield.text!)"
     }
     
+    @IBAction func postOnClick(_ sender: Any) {
+        print("car post saved")
+        APIFunctions.functions.addPost(make: CarTypeTextfield.text!, color: CarColorTextfield.text!)
+        self.navigationController?.popViewController(animated: true)
+    }
 }
 

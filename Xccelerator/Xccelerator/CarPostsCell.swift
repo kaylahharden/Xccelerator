@@ -9,6 +9,8 @@ import UIKit
 
 class CarPostsCell: UITableViewCell {
 
+    @IBOutlet weak var colorLabel: UILabel!
+    @IBOutlet weak var makeLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

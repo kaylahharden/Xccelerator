@@ -8,11 +8,26 @@
 import UIKit
 
 class CarViewController: UIViewController {
+    
+    var car: carPost?
+    var update = false
 
+    @IBOutlet weak var deleteCarButton: UIButton!
+    @IBOutlet weak var makeTextView: UILabel!
+    @IBOutlet weak var colorTextView: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        if update == true {
+            makeTextView.text = car?.make
+            colorTextView.text = car?.color
+        }
+        
+    }
+    @IBAction func deleteOnClick(_ sender: Any) {
+        print("car post deleted")
     }
     
 

@@ -19,6 +19,8 @@
 		7F17874F27B230D700E6A4D8 /* CarPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F17874E27B230D700E6A4D8 /* CarPostViewController.swift */; };
 		7F17875227B2470500E6A4D8 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 7F17875127B2470500E6A4D8 /* Alamofire */; };
 		7F17875427B2477000E6A4D8 /* APIFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F17875327B2477000E6A4D8 /* APIFunctions.swift */; };
+		7F1787D127BB7A9600E6A4D8 /* CarPostsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1787D027BB7A9600E6A4D8 /* CarPostsCell.swift */; };
+		7F1787D327BC016D00E6A4D8 /* CarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1787D227BC016D00E6A4D8 /* CarViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,8 @@
 		7F1786FE27B0CA2800E6A4D8 /* XcceleratorUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XcceleratorUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		7F17874E27B230D700E6A4D8 /* CarPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarPostViewController.swift; sourceTree = "<group>"; };
 		7F17875327B2477000E6A4D8 /* APIFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIFunctions.swift; sourceTree = "<group>"; };
+		7F1787D027BB7A9600E6A4D8 /* CarPostsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarPostsCell.swift; sourceTree = "<group>"; };
+		7F1787D227BC016D00E6A4D8 /* CarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,10 +109,12 @@
 		7F1786DA27B0CA2400E6A4D8 /* Xccelerator */ = {
 			isa = PBXGroup;
 			children = (
+				7F1787D227BC016D00E6A4D8 /* CarViewController.swift */,
 				7F1786DB27B0CA2400E6A4D8 /* AppDelegate.swift */,
 				7F1786DD27B0CA2400E6A4D8 /* SceneDelegate.swift */,
 				7F1786DF27B0CA2400E6A4D8 /* ViewController.swift */,
 				7F1786E127B0CA2400E6A4D8 /* Main.storyboard */,
+				7F1787D027BB7A9600E6A4D8 /* CarPostsCell.swift */,
 				7F17874E27B230D700E6A4D8 /* CarPostViewController.swift */,
 				7F1786E427B0CA2800E6A4D8 /* Assets.xcassets */,
 				7F1786E627B0CA2800E6A4D8 /* LaunchScreen.storyboard */,
@@ -272,8 +278,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F1787D127BB7A9600E6A4D8 /* CarPostsCell.swift in Sources */,
 				7F1786E027B0CA2400E6A4D8 /* ViewController.swift in Sources */,
 				7F17874F27B230D700E6A4D8 /* CarPostViewController.swift in Sources */,
+				7F1787D327BC016D00E6A4D8 /* CarViewController.swift in Sources */,
 				7F1786DC27B0CA2400E6A4D8 /* AppDelegate.swift in Sources */,
 				7F1786DE27B0CA2400E6A4D8 /* SceneDelegate.swift in Sources */,
 				7F17875427B2477000E6A4D8 /* APIFunctions.swift in Sources */,

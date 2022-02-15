@@ -1,6 +1,7 @@
 // reference: https://www.youtube.com/watch?v=vKCdVAg5h40&list=RDCMUC2D6eRvCeMtcF5OGHf1-trw&start_radio=1&rv=vKCdVAg5h40&t=514
 
 const express = require('express')
+const res = require('express/lib/response')
 const mongoose = require('mongoose')
 
 var app = express()  // creates an express object to be used throughout
@@ -55,10 +56,37 @@ app.get("/fetch", function(request, response){
 
 
 // route to delete a carPost (POST request)
+app.post("/delete", function(request, response){
+    Data.findOneAndRemove({  // we are going to identify each note by the id
+        _id: request.get("id")   // gets the specific error id that we want to delete by
+    }, function(error){
+        if (error == null){
+            console.log("Error is null, still deleted: " + error)
+        }else{
+            console.log("Failed to delete: " + error)
+        }
+    })
+    response.send("Deleted!")
+})
+
 // route to update a carPost (POST request)
+app.post("/update", function(request, response){
+    Data.findByIdAndUpdate({ //specifies the first object we want to update (by id)
+        _id: request.get("id")
+    }, {  // sends the new data back to the server
+        make: request.get("make"),
+        color: request.get("color")
+    }, function(error){
+        if (error == null){
+            console.log("Error is null, still updated: " + error)
+        }else{
+            console.log("Failed to update: " + error)}
+    })
+    response.send("Updated!")
+})
 
 
-// http://10.84.114.54:8082/create
-var server = app.listen(8082, "10.84.114.54", function(){     // listens on specified port number on my ip address
+// http://10.84.115.109:8084/create
+var server = app.listen(8084, "10.84.115.109", function(){     // listens on specified port number on my ip address
     console.log("Server is running...")
 })  
