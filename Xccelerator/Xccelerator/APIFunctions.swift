@@ -19,7 +19,7 @@ class APIFunctions{
     static let functions = APIFunctions() // creates an instance of the API function class
     
     func getPosts(){
-        AF.request("http://10.84.114.54:8082/fetch").response { response in   //makes a request to the server and display the response ("response in" allows us to access the data)
+        AF.request("http://10.84.115.109:8084/fetch").response { response in   //makes a request to the server and display the response ("response in" allows us to access the data)
             
             print(response.data)  // prints the servers actual data
             
@@ -32,7 +32,7 @@ class APIFunctions{
     
     func addPost (make: String, color: String){
         
-        AF.request("http://10.84.114.54:8082/create", method: .post, encoding: URLEncoding.httpBody, headers: ["make": make, "color": color]).responseJSON { response in
+        AF.request("http://10.84.115.109:8084/create", method: .post, encoding: URLEncoding.httpBody, headers: ["make": make, "color": color]).responseJSON { response in
             
         }
         

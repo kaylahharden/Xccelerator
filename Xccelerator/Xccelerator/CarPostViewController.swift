@@ -18,20 +18,36 @@ class CarPostViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     var carPostsArray = [carPost]()
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "updatePostSegue"{   // if we are on this identifier
+            let carNote = segue.destination as! CarViewController
+            carNote.car = carPostsArray[carPostTableView.indexPathForSelectedRow!.row]
+            carNote.update = true
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // this function determines the number of rows
         return carPostsArray.count // returns the amount of posts in the array
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "prototypeCell", for: indexPath)   //this creates a prototype cell that will be reused
-        cell.textLabel?.text = carPostsArray[indexPath.row].make
-        //cell.textLabel?.text = carPostsArray[indexPath.row].color
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CarPostsCell") as! CarPostsCell   //this creates a prototype cell that will be reused
+        cell.makeLabel.text = carPostsArray[indexPath.row].make
+        cell.colorLabel.text = carPostsArray[indexPath.row].color
         return cell
     }
     
 
     @IBOutlet weak var carPostTableView: UITableView!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        APIFunctions.functions.getPosts()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        APIFunctions.functions.getPosts()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
