@@ -16,6 +16,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var textView: UITextView!
     
     @IBOutlet weak var postCarButton: UIButton!
+
+    @IBOutlet weak var errorLabel: UILabel!
     
     //Create an instance of user defaults
     let  FirstNameuserdefault = UserDefaults()
@@ -32,6 +34,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         LastNameTextfield.delegate = self
         CarTypeTextfield.delegate = self
         CarColorTextfield.delegate = self
+        errorLabel.isHidden = true
     }
 
 //    @IBAction func FindCarButton(_ sender: Any) {
@@ -48,9 +51,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func postOnClick(_ sender: Any) {
-        print("car post saved")
-        APIFunctions.functions.addPost(make: CarTypeTextfield.text!, color: CarColorTextfield.text!)
-        self.navigationController?.popViewController(animated: true)
+        if ((CarTypeTextfield.text?.count == 0) && (CarColorTextfield.text?.count == 0)){
+            errorLabel.isHidden = false
+            errorLabel.text = "Must enter values for Make and Color!"
+        }
+        else{
+            print("car post saved")
+            APIFunctions.functions.addPost(make: CarTypeTextfield.text!, color: CarColorTextfield.text!)
+            self.navigationController?.popViewController(animated: true)
+        }
+        
     }
 }
 

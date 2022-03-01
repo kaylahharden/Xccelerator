@@ -42,16 +42,26 @@ class CarPostViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var carPostTableView: UITableView!
     
     override func viewWillAppear(_ animated: Bool) {
+        print(carPostsArray)
         APIFunctions.functions.getPosts()
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        print(carPostsArray)
         APIFunctions.functions.getPosts()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         APIFunctions.functions.delegate = self  // lets APIFunctions know that data is being handled by the view controller
+        
+//        let colorsList = ["red", "purple", "blue", "green", "black", "grey", "brown", "white", "peach", "yellow", "pink"]
+//        let carList = ["Honda", "Toyota", "Ford", "Honda", "Fiat", "Nissan", "Tesla", "Hundai", "Kia", "GMC", "BMW", "Audi", "Buick"]
+//        for _ in 1...20{
+//            APIFunctions.functions.addPost(make: carList.randomElement()!, color: colorsList.randomElement()!)
+//        }
+        
+        print(carPostsArray)
         APIFunctions.functions.getPosts()
         print(carPostsArray)
         // Do any additional setup after loading the view.
@@ -76,13 +86,39 @@ class CarPostViewController: UIViewController, UITableViewDelegate, UITableViewD
 extension CarPostViewController: DataDelegate{
     func updateArray(newArray: String) {
         do{
-            carPostsArray = try JSONDecoder().decode([carPost].self, from: newArray.data(using: .utf8)!)
+            print("Data to decode is")
+            print(newArray.data)
+            // make submission required so that both make and color are needed
+            // have a counter measure that willl still read the jason string even if the key is missing
+            //carPostsArray = try JSONDecoder().decode([carPost].self, from: newArray.data(using: .utf8)!)
+            let decoder = JSONDecoder()
+//            carPostsArray = try decoder.decode([carPost].self, from: newArray.data(using: .utf8)!)
+            let tempArray = try decoder.decode([carPost].self, from: newArray.data(using: .utf8)!)
+            var newArray: [carPost] = []
+            for i in stride(from: tempArray.count - 1, through: 0, by: -1){
+                newArray.append(tempArray[i])
+            }
+            carPostsArray = newArray
             // decodes the server data in JSON format
             print("this is a test")
             print(carPostsArray)
-        }catch{
-            print("Failed to decode")
+        } catch let DecodingError.dataCorrupted(context) {
+                    print(context)
+        } catch let DecodingError.valueNotFound(value, context) {
+            print("Value '\(value)' not found:", context.debugDescription)
+            print("codingPath:", context.codingPath)
+        } catch let DecodingError.keyNotFound(key, context) {
+            print("Key '\(key)' not found:", context.debugDescription)
+            print("codingPath:", context.codingPath)
+        } catch let DecodingError.typeMismatch(type, context)  {
+            print("Type '\(type)' mismatch:", context.debugDescription)
+            print("codingPath:", context.codingPath)
+        } catch {
+            print("error: ", error)
         }
+//        }catch{
+//            print("Failed to decode")
+//        }
         self.carPostTableView?.reloadData()  //reloads the data to always be updated
     }
 }

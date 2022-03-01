@@ -4,13 +4,15 @@
 //
 //  Created by Sarah Mullings on 2/8/22.
 //
-
 import Foundation
 import Alamofire
 
 struct carPost: Decodable {   // allows us to decode what the server is sending us in order to access it and use it
     var make: String
     var color: String
+    var _id: String
+    var latitude: Double
+    var longitude: Double
 }
 
 class APIFunctions{
@@ -19,23 +21,34 @@ class APIFunctions{
     static let functions = APIFunctions() // creates an instance of the API function class
     
     func getPosts(){
-        AF.request("http://10.84.115.109:8084/fetch").response { response in   //makes a request to the server and display the response ("response in" allows us to access the data)
+        AF.request("http://localhost:8085/fetch").response { response in   //makes a request to the server and display the response ("response in" allows us to access the data)
             
             print(response.data)  // prints the servers actual data
             
+            //if response.data != nil{
             let data = String(data:response.data!, encoding: .utf8)  // turns the data that the server sends us into a string that we can parse
-            
+            print(data!)
             // create a delegate and protocol method that would allow us to send the data to the user
             self.delegate?.updateArray(newArray: data!)
+            //}
         }
     }
     
     func addPost (make: String, color: String){
         
-        AF.request("http://10.84.115.109:8084/create", method: .post, encoding: URLEncoding.httpBody, headers: ["make": make, "color": color]).responseJSON { response in
+        AF.request("http://localhost:8085/create", method: .post, encoding: URLEncoding.httpBody, headers: ["make": make, "color": color]).responseJSON { response in
             
         }
         
     }
+    
+    func deletePost (id: String){
+
+        AF.request("http://localhost:8085/delete", method: .post, encoding: URLEncoding.httpBody, headers: ["id": id]).responseJSON { response in
+
+        }
+        
+    }
+
     
 }

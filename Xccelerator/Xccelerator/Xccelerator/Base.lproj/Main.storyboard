@@ -122,14 +122,14 @@
                                 <color key="textColor" systemColor="systemGrayColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Car Type" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hy0-Si-HzK">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Make" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hy0-Si-HzK">
                                 <rect key="frame" x="20" y="259" width="374" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Car Color" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gmb-pt-bP8">
-                                <rect key="frame" x="20" y="307" width="374" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Color" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gmb-pt-bP8">
+                                <rect key="frame" x="20" y="322" width="374" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -152,7 +152,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vgy-8E-q8O">
-                                <rect key="frame" x="32" y="363" width="106" height="37"/>
+                                <rect key="frame" x="21" y="388" width="106" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Post Car"/>
@@ -170,6 +170,13 @@
                                     <action selector="FindCarButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fL9-FJ-Z8C"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Required" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L5r-Av-tmN">
+                                <rect key="frame" x="146" y="388" width="248" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" systemColor="systemRedColor"/>
+                                <color key="highlightedColor" systemColor="labelColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
@@ -180,6 +187,7 @@
                         <outlet property="CarTypeTextfield" destination="Hy0-Si-HzK" id="yHD-u2-cTj"/>
                         <outlet property="FirstNameTextfield" destination="4DH-8v-DKd" id="3JJ-fB-fOC"/>
                         <outlet property="LastNameTextfield" destination="c3n-tf-d9e" id="fVE-ld-CF1"/>
+                        <outlet property="errorLabel" destination="L5r-Av-tmN" id="UFz-2g-c5k"/>
                         <outlet property="postCarButton" destination="Vgy-8E-q8O" id="q3e-ls-chb"/>
                         <outlet property="textView" destination="7c5-EA-Hdk" id="lKV-oK-i5Z"/>
                     </connections>
@@ -224,6 +232,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="gsR-2b-9IF">
+                                <rect key="frame" x="38" y="287" width="338" height="536"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="EbI-Oy-v7S"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -248,6 +260,7 @@
                         <outlet property="colorTextView" destination="C4t-XN-BFf" id="Icg-ri-Z98"/>
                         <outlet property="deleteCarButton" destination="6gZ-Ss-95Y" id="jM5-7f-qzl"/>
                         <outlet property="makeTextView" destination="KMt-dR-T2Z" id="zWy-X7-0q5"/>
+                        <outlet property="mapView" destination="gsR-2b-9IF" id="bOH-PU-zXH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="utu-Oi-zbi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

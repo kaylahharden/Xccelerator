@@ -4,7 +4,9 @@ var Schema = mongoose.Schema
 var carPost = new Schema({   // defines a new data object of what the car post will hold
 
     make: String,
-    color: String
+    color: String,
+    latitude: Number,
+    longitude: Number
 
 })
 
